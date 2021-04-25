@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
+import { Col, Row } from 'reactstrap';
 import { api } from '../../services/api';
 
 type CovidBrazilData = {
@@ -10,6 +11,16 @@ type CovidBrazilData = {
 };
 
 const defaultData: CovidBrazilData[] = [];
+
+const options = {
+  scales: {
+    x: [
+      {
+        display: false,
+      },
+    ],
+  },
+};
 
 const Charts = (): JSX.Element => {
   const [chartDataConfirmed, setChartDataConfirmed] = useState({});
@@ -38,7 +49,6 @@ const Charts = (): JSX.Element => {
           label: 'Confirmados',
           data: covidBrazil.map((states) => states.confirmed),
           backgroundColor: [`#09ff00`],
-          borderWidth: 4,
         },
       ],
     });
@@ -49,7 +59,6 @@ const Charts = (): JSX.Element => {
           label: 'Óbitos',
           data: covidBrazil.map((states) => states.deaths),
           backgroundColor: [`#ff0000`],
-          borderWidth: 4,
         },
       ],
     });
@@ -57,8 +66,18 @@ const Charts = (): JSX.Element => {
 
   return (
     <>
-      <Bar type="bar" data={chartDataConfirmed} />
-      <Line type="line" data={chartDataDeaths} />
+      <Row>
+        <Col md="6">
+          <div className="p-3 bg-white shadow my-2 rounded d-flex justify-content-around align-items-center">
+            <Bar type="bar" data={chartDataConfirmed} options={options} />
+          </div>
+        </Col>
+        <Col md="6">
+          <div className="p-3 bg-white shadow my-2 rounded d-flex justify-content-around align-items-center">
+            <Line type="line" data={chartDataDeaths} options={options} />
+          </div>
+        </Col>
+      </Row>
     </>
   );
 };

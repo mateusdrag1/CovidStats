@@ -94,9 +94,7 @@ export function Main(): JSX.Element {
             })}
         </Row>
         <h3 className="py-3 mb-1">Informações sobre todos os estados</h3>
-        <Container>
-          <Charts />
-        </Container>
+        <Charts />
         <Row className="mt-2">
           <Col>
             <Table
