@@ -36,7 +36,8 @@ export function NavBar(): JSX.Element {
       </div>
 
       <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-
+      {/*
+      Feature que será implementada com o sistema de login ***
       <Collapse isOpen={!collapsed} navbar>
         <Nav navbar className="ml-auto mb-2 mb-lg-0">
           <UncontrolledButtonDropdown nav inNavbar>
@@ -53,6 +54,7 @@ export function NavBar(): JSX.Element {
           </UncontrolledButtonDropdown>
         </Nav>
       </Collapse>
+      */}
     </Navbar>
   );
 }
