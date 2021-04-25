@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Table } from 'reactstrap';
 import { api } from '../../services/api';
+import Charts from '../Charts';
 import { NavBar } from '../Navbar';
 
 type CovidBrazilData = {
@@ -93,6 +94,9 @@ export function Main(): JSX.Element {
             })}
         </Row>
         <h3 className="py-3 mb-1">Informações sobre todos os estados</h3>
+        <Container>
+          <Charts />
+        </Container>
         <Row className="mt-2">
           <Col>
             <Table
